@@ -1100,6 +1100,7 @@ def test_se3_transformer_save_restore():
     # Ensure predictions before and after restoring are close
     assert np.allclose(pred_before_restore, pred_after_restore, atol=1e-05)
 
+
 @pytest.mark.torch
 def test_se3_transformer_model_fit_predict():
     """Smoke test: SE3TransformerModel trains and predicts on a tiny dataset."""
@@ -1118,7 +1119,7 @@ def test_se3_transformer_model_fit_predict():
         num_layers=1, atom_feature_size=6, num_workers=0,
         num_channels=8, num_degrees=2, edge_dim=4, pooling='avg',
         n_heads=1, batch_size=2)
-    
+
     # Check that it runs without crashing
     model.fit(dataset, nb_epoch=1)
     preds = model.predict(dataset)
